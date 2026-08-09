@@ -1,8 +1,7 @@
 # icons-nerd-font
 
 ![Screenshot1 From icons-nerd-font](images/IMG1.jpg)
-
-
+---
 ![Screenshot2 From icons-nerd-font](images/IMG2.jpg)
 
 
