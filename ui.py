@@ -1,11 +1,12 @@
 import sys
-from terminal_utils import clear_screen, get_terminal_size, get_page_size, format_result
-from keyboard import get_key
+
 from glyph import search
+from keyboard import get_key
+from terminal_utils import clear_screen, format_result, get_page_size, get_terminal_size
 
 
 def draw_search(query, results, selected, scroll):
-    width, height = get_terminal_size()
+    width, _height = get_terminal_size()
     page_size = get_page_size()
     clear_screen()
     total = len(results)
@@ -36,7 +37,7 @@ def draw_search(query, results, selected, scroll):
         sys.stdout.flush()
         return
 
-    visible_results = results[scroll:scroll + page_size]
+    visible_results = results[scroll : scroll + page_size]
     for index, glyph in enumerate(visible_results):
         real_index = scroll + index
         line = format_result(glyph, selected=(real_index == selected))
