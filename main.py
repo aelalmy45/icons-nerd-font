@@ -1,9 +1,10 @@
-import sys
 import os
-from glyph import load_glyphs, search, get_icon_sets, Glyph
-from ui import interactive_search
+import sys
+
 from clipboard import copy_to_clipboard
+from glyph import get_icon_sets, load_glyphs, search
 from help_text import show_help
+from ui import interactive_search
 
 FONT_PATH = os.path.expanduser("~/.termux/font.ttf")
 
@@ -48,9 +49,7 @@ def main():
             sys.exit(1)
         icon_set = sys.argv[2]
         if len(sys.argv) == 3:
-            results = [
-                glyph for glyph in glyphs if glyph.prefix == icon_set
-            ]
+            results = [glyph for glyph in glyphs if glyph.prefix == icon_set]
             results.sort(key=lambda glyph: glyph.codepoint)
             print(f"Icon set: {icon_set}")
             print(f"Results: {len(results)}")
@@ -61,7 +60,7 @@ def main():
         query = " ".join(sys.argv[3:])
         results = search(glyphs, query, icon_set)
         if not results:
-            print(f'No results found for: {query}')
+            print(f"No results found for: {query}")
             sys.exit(1)
         glyph = interactive_search(results)
         if glyph is not None:
@@ -78,7 +77,7 @@ def main():
         query = " ".join(sys.argv[2:])
         results = search(glyphs, query)
         if not results:
-            print(f'No results found for: {query}')
+            print(f"No results found for: {query}")
             sys.exit(1)
         glyph = results[0]
         if copy_to_clipboard(glyph.character):
@@ -90,7 +89,7 @@ def main():
     query = " ".join(sys.argv[1:])
     results = search(glyphs, query)
     if not results:
-        print(f'No results found for: {query}')
+        print(f"No results found for: {query}")
         sys.exit(1)
     glyph = interactive_search(glyphs)
     if glyph is not None:

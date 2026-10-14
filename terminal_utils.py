@@ -1,6 +1,5 @@
-import os
-import sys
 import shutil as terminal
+import sys
 
 
 def get_terminal_size():
@@ -21,9 +20,4 @@ def clear_screen():
 
 def format_result(glyph, selected=False):
     marker = "> " if selected else "  "
-    return (
-        f"{marker}"
-        f"{glyph.character}  "
-        f"{glyph.unicode:<8}  "
-        f"{glyph.name}"
-    )
+    return f"{marker}{glyph.character}  {glyph.unicode:<8}  {glyph.name}"
