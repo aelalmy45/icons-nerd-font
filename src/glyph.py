@@ -1,6 +1,7 @@
-from dataclasses import dataclass
-from fontTools.ttLib import TTFont
 from collections import Counter
+from dataclasses import dataclass
+
+from fontTools.ttLib import TTFont
 
 
 @dataclass
@@ -80,6 +81,4 @@ def search(glyphs, query, icon_set=None):
 
 
 def get_icon_sets(glyphs):
-    return Counter(
-        glyph.prefix for glyph in glyphs if glyph.prefix
-    )
+    return Counter(glyph.prefix for glyph in glyphs if glyph.prefix)

@@ -1,8 +1,13 @@
 import sys
 
-from glyph import search
-from keyboard import get_key
-from terminal_utils import clear_screen, format_result, get_page_size, get_terminal_size
+from src.glyph import search
+from src.keyboard import get_key
+from src.terminal_utils import (
+    clear_screen,
+    format_result,
+    get_page_size,
+    get_terminal_size,
+)
 
 
 def draw_search(query, results, selected, scroll):

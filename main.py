@@ -1,10 +1,10 @@
 import os
 import sys
 
-from clipboard import copy_to_clipboard
-from glyph import get_icon_sets, load_glyphs, search
-from help_text import show_help
-from ui import interactive_search
+from src.clipboard import copy_to_clipboard
+from src.glyph import get_icon_sets, load_glyphs, search
+from src.help_text import show_help
+from src.ui import interactive_search
 
 FONT_PATH = os.path.expanduser("~/.termux/font.ttf")
 
@@ -24,11 +24,10 @@ def main():
 
     if len(sys.argv) <= 1:
         glyph = interactive_search(glyphs)
-        if glyph is not None:
-            if copy_to_clipboard(glyph.character):
-                print(f"Copied: {glyph.character}")
-                print(f"Unicode: {glyph.unicode}")
-                print(f"Name: {glyph.name}")
+        if glyph is not None and copy_to_clipboard(glyph.character):
+            print(f"Copied: {glyph.character}")
+            print(f"Unicode: {glyph.unicode}")
+            print(f"Name: {glyph.name}")
         sys.exit(0)
 
     if sys.argv[1] in ("--help", "-h"):
@@ -63,11 +62,10 @@ def main():
             print(f"No results found for: {query}")
             sys.exit(1)
         glyph = interactive_search(results)
-        if glyph is not None:
-            if copy_to_clipboard(glyph.character):
-                print(f"Copied: {glyph.character}")
-                print(f"Unicode: {glyph.unicode}")
-                print(f"Name: {glyph.name}")
+        if glyph is not None and copy_to_clipboard(glyph.character):
+            print(f"Copied: {glyph.character}")
+            print(f"Unicode: {glyph.unicode}")
+            print(f"Name: {glyph.name}")
         sys.exit(0)
 
     if sys.argv[1] == "--copy":
@@ -92,11 +90,10 @@ def main():
         print(f"No results found for: {query}")
         sys.exit(1)
     glyph = interactive_search(glyphs)
-    if glyph is not None:
-        if copy_to_clipboard(glyph.character):
-            print(f"Copied: {glyph.character}")
-            print(f"Unicode: {glyph.unicode}")
-            print(f"Name: {glyph.name}")
+    if glyph is not None and copy_to_clipboard(glyph.character):
+        print(f"Copied: {glyph.character}")
+        print(f"Unicode: {glyph.unicode}")
+        print(f"Name: {glyph.name}")
 
 
 if __name__ == "__main__":
