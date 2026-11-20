@@ -1,8 +1,8 @@
 import sys
 
-from src.glyph import search
-from src.keyboard import get_key
-from src.terminal_utils import (
+from .glyph import search
+from .keyboard import get_key
+from .terminal_utils import (
     clear_screen,
     format_result,
     get_page_size,
