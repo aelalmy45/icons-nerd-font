@@ -61,7 +61,7 @@ def main():
         if not results:
             print(f"No results found for: {query}")
             sys.exit(1)
-        glyph = interactive_search(results)
+        glyph = interactive_search(glyphs, initial_query=query, icon_set=icon_set)
         if glyph is not None and copy_to_clipboard(glyph.character):
             print(f"Copied: {glyph.character}")
             print(f"Unicode: {glyph.unicode}")
@@ -89,7 +89,7 @@ def main():
     if not results:
         print(f"No results found for: {query}")
         sys.exit(1)
-    glyph = interactive_search(glyphs)
+    glyph = interactive_search(glyphs, initial_query=query)
     if glyph is not None and copy_to_clipboard(glyph.character):
         print(f"Copied: {glyph.character}")
         print(f"Unicode: {glyph.unicode}")
