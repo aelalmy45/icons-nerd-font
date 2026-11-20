@@ -56,14 +56,14 @@ def draw_search(query, results, selected, scroll):
     sys.stdout.flush()
 
 
-def interactive_search(glyphs):
-    query = ""
+def interactive_search(glyphs, initial_query="", icon_set=None):
+    query = initial_query
     results = []
     selected = 0
     scroll = 0
 
     while True:
-        results = search(glyphs, query)
+        results = search(glyphs, query, icon_set)
         if results:
             if selected >= len(results):
                 selected = len(results) - 1
