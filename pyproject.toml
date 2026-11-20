@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "icons-nerd-font"
+version = "1.0.0"
+description = "Search and copy Nerd Font icons from your terminal"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = ["fontTools>=4.40.0"]
+
+[project.scripts]
+icons-nerd-font = "icons_nerd_font.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["icons_nerd_font*"]

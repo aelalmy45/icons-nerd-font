@@ -8,7 +8,9 @@ def get_key():
     fd = sys.stdin.fileno()
     old_settings = termios.tcgetattr(fd)
     try:
-        tty.setraw(fd)
+        # TCSANOW (not the setraw default TCSAFLUSH) so keystrokes typed
+        # while the terminal was back in canonical mode are not discarded.
+        tty.setraw(fd, when=termios.TCSANOW)
         first = os.read(fd, 1)
         if first == b"\x03":   # Ctrl+C
             return "CTRL_C"
