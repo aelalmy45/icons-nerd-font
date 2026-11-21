@@ -55,7 +55,7 @@ def _load_glyphs_or_exit(font_path):
         sys.exit(1)
     try:
         glyphs = load_glyphs(font_path)
-    except Exception as error:
+    except Exception as error:  # noqa: BLE001
         print(f"Error: could not read font {font_path}: {error}")
         sys.exit(1)
     if not glyphs:

@@ -76,7 +76,7 @@ def has_private_use_glyphs(font_path):
 
     try:
         font = TTFont(font_path, fontNumber=0, lazy=True)
-    except Exception:
+    except Exception:  # noqa: BLE001
         return False
     try:
         cmap = font.getBestCmap()
